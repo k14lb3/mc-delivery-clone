@@ -1,0 +1,226 @@
+.foods {
+    margin: 0 auto;
+    max-width: 930px;
+
+    .first-row {
+        display: flex;
+    }
+
+    .second-row {
+        display: flex;
+
+    }
+
+}
+
+%tn-food-img {
+    width: 100%;
+    height: 100%;
+    transition: 0.4s;
+}
+
+%tn-food-img-hover {
+    transform: scale(1.05);
+}
+
+%tn-food-img-container {
+    display: inline-block;
+    width: 465px;
+    height: 194.91px;
+    cursor: pointer;
+    overflow: hidden;
+    border: 2px solid #c40514;
+}
+
+#tn-chicken-mcdo-mcnuggets {
+    @extend %tn-food-img-container;
+    border-top-style: none;
+    border-right-style: none;
+
+    img {
+        @extend %tn-food-img;
+
+        &:hover {
+            @extend %tn-food-img-hover;
+        }
+
+    }
+
+}
+
+#tn-mcspaghetti-rice-meals {
+    @extend %tn-food-img-container;
+    border-top-style: none;
+
+    img {
+        @extend %tn-food-img;
+
+        &:hover {
+            @extend %tn-food-img-hover;
+        }
+    }
+
+}
+
+#tn-burgers {
+    @extend %tn-food-img-container;
+    width: 930px;
+    height: 195.5px;
+    border-top-style: none;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: 100%;
+        transition: .4s;
+
+        &:hover {
+            @extend %tn-food-img-hover
+        }
+
+    }
+
+}
+
+%food-img {
+    max-width: 179.75px;
+    max-height: 132.22px;
+}
+
+%food-block {
+    float: left;
+    width: 50%;
+    padding: 0 8px 8px 0;
+}
+
+%food-container {
+    background-color: #ededed;
+    padding: 16px;
+    max-width: auto;
+}
+
+%title {
+    display: inline-block;
+    width: 100%;
+    color: #c40514;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 32px;
+    min-height: 95px;
+}
+
+%price {
+    display: inline;
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 16px;
+    background-color: #f8bc13;
+    font-weight: bold;
+    text-align: center;
+
+    div {
+        display: flex;
+        align-items: center;
+
+        &:last-of-type {
+            font-size: 32px;
+
+        }
+    }
+
+}
+
+.add {
+    background-color: #c40514;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    padding: 16px 0;
+    margin: 0 72px;
+    cursor: pointer;
+    transition: .4s;
+
+    &:hover{
+        color: #23527c
+    }
+
+}
+
+#food-list {
+    display: flex;
+    padding-bottom: -8px;
+
+    img {
+        @extend %food-img;
+    }
+
+    .title {
+        @extend %title;
+
+    }
+
+    .price {
+        @extend %price;
+    }
+
+    .row-1 {
+        display: flex;
+
+    }
+
+    .row-2 {
+        display: flex;
+        margin-top: 32px;
+
+        .label {
+            color: #c40514;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .col-1 {
+            width: 40%;
+            margin-right: 16px;
+
+        }
+
+        .col-2 {
+            width: 60%;
+            margin-right: 16px;
+
+        }
+
+    }
+
+    .row-3 {
+        margin-top: 32px;
+    }
+
+
+    .block-1, .block-2 {
+        @extend %food-block;
+
+        .container {
+            @extend %food-container;
+
+        }
+
+    }
+    
+    .block-2{
+        padding: 0 0 8px 8px;
+    }
+
+
+
+
+}

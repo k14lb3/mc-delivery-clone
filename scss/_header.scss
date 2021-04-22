@@ -1,0 +1,75 @@
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: #c40514;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    z-index: 2;
+
+    .container {
+        position: relative;
+        max-width: 1280px;
+        max-height: 102px;        
+    }
+
+
+}
+.logo {
+    max-height: 82px;
+    margin: 10px 32px;
+    cursor: pointer;
+}
+
+
+%option {
+    height: 100%;
+    padding: 40px 10px;
+    cursor: pointer;
+    transition: all .4s ease;
+}
+
+%options-hover {
+    background-color: #000;
+    color: #fcb917 !important;
+}
+
+.options {
+    display: flex;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+    margin-right: 32px;
+
+    .home {
+        @extend %option;
+
+        &:hover {
+            @extend %options-hover;
+        }
+
+    }
+
+    .bag {
+        @extend %option;
+
+        &:hover {
+            @extend %options-hover;
+        }
+
+    }
+
+    .contacts {
+        @extend %option;
+
+
+        &:hover {
+            @extend %options-hover;
+        }
+    }
+
+}
+
+@import 'bag';

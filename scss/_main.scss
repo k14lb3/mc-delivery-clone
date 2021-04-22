@@ -1,0 +1,26 @@
+.main {
+    width: 100%;
+    transition: .4s;
+
+    .category {
+        width: 100%;
+        height: 51px;
+        background-color: #fcb917;
+        margin-top: 102px;
+        margin-bottom: 6px;
+
+        .container {
+            display: flex;
+            height: 100%;
+            align-items: center;
+            font-size: 26px;
+            font-weight: bold;
+            transition: color 500ms;
+        }
+
+    }
+
+}
+
+@import 'carousel';
+@import 'foods';

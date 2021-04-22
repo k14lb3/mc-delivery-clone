@@ -1,0 +1,185 @@
+.my-bag {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #000;
+    width: 1100px;
+    height: 0;
+    transition: height 1s;
+    color: #fff;
+    border: solid 4px #c40514;
+    border-top: 0;
+    overflow: hidden;
+
+    .container {
+        position: relative;
+        max-height: none;
+        margin: 10px 35px 50px;
+
+        &>.row {
+            position: relative;
+            background: url('../src/images/paperbag.png') left top no-repeat;
+            background-size: 77px 93px;
+            padding: 10px 20px 30px 90px;
+            margin-top: 20px;
+            border-bottom: 1px solid #fff;
+            font-weight: normal;
+            font-size: 32px;
+
+            .close {
+                position: absolute;
+                height: 30px;
+                width: 30px;
+                right: 0;
+                top: 0;
+                mask-image: url('../src/icons/times.svg');
+                background-color: white;
+                mask-repeat: no-repeat;
+                transition: 0.4s;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #666;
+                }
+            }
+
+        }
+    }
+
+    .food {
+        margin: 20px 0;
+        font-weight: 400;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #fff;
+
+        &>.row {
+            display: flex;
+            width: 100%;
+            margin-top: 20px;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+
+        .block {
+            display: flex;
+            width: 50%;
+
+            img {
+                max-width: 179.75px;
+                max-height: 132.22px;
+                margin-right: 16px;
+            }
+
+            &>div {
+                &>:nth-child(4) {
+                    display: flex;
+                }
+            }
+
+            .title {
+                font-size: 24px;
+                min-height: 60px;
+                margin-bottom: 10px;
+            }
+
+            .price {
+                margin-bottom: 5px;
+            }
+
+            .qty {
+                font-size: 20px;
+                margin: 10px 0 5px;
+            }
+
+            .qty-button {
+                display: flex;
+                width: 120px;
+            }
+
+            .count {
+                background-color: #000;
+            }
+
+            .remove {
+                display: flex;
+                background-color: #c40514;
+                width: fit-content;
+                padding: 10px;
+                margin-left: 20px;
+                cursor: pointer;
+                transition: 0.4s;
+
+                &:hover {
+                    color: #23527c;
+                }
+
+            }
+
+        }
+    }
+
+    .order {
+        width: 100%;
+        
+        &>div {
+            margin-left: auto;
+            width: 50%;
+            font-weight: 400;
+
+            %block {
+                display: inline-block;
+            }
+
+            div {
+                margin: 5px 0;
+            }
+
+            &>div:nth-child(1) {
+                @extend %block;
+                margin-right: 25%;
+
+                div:last-of-type {
+                    margin-top: 15px;
+                    font-size: 24px;
+                    color: #f8bc13;
+                }
+            }
+
+            &>div:nth-child(2) {
+                @extend %block;
+
+                div:last-of-type {
+                    margin-top: 15px;
+                    font-size: 24px;
+                    color: #f8bc13;
+                }
+            }
+        }
+
+    }
+
+}
+
+.my-bag.show {
+    height: calc(100vh - 102px);
+}
+
+#order {
+    background-color: #f8bc13;
+    color: #000;
+    width: 50%;
+    margin: 15px auto 0 !important;
+    padding: 15px 60px;
+    font-size: 18px;
+    text-align: center;
+    font-weight: 400;
+    transition: 0.4s;
+    cursor: pointer;
+
+    &:hover {
+        color: #23527c;
+    }
+
+}

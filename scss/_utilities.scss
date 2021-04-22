@@ -1,0 +1,286 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'mcSpeedeFont';
+    user-select: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    background-color: #fcb917;
+    width: 13px;
+
+}
+
+::-webkit-scrollbar-thumb {
+    background: url('../src/images/scroll.png');
+    border-radius: 4px;
+    width: 13px;
+
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+
+.container {
+    max-width: 930px;
+    margin: 0 auto;
+}
+
+#home {
+    width: 100%;
+    height: 102px;
+}
+
+.qty-button {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 41px;
+    border: 2px solid #c40514;
+    color: #fff;
+
+    i {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+}
+
+%qty-button {
+    display: flex;
+    position: absolute;
+    height: 100%;
+    width: 32px;
+    text-align: center;
+    background: #c40514;
+    cursor: pointer;
+}
+
+.minus {
+    @extend %qty-button;
+    left: -1px;
+    transition: 0.4s;
+
+
+    &:hover {
+        color: #23527c;
+    }
+}
+
+.plus {
+    @extend %qty-button;
+    right: -1px;
+    transition: 0.4s;
+
+    &:hover {
+        color: #23527c;
+    }
+}
+
+.count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 24px;
+    text-align: center;
+    color: black;
+    background-color: white
+}
+
+.dialog {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    z-index: 99;
+
+    %dialog {
+        position: fixed;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        padding: 32px 84px;
+        background-color: #333;
+        color: #fff;
+        font-weight: 300;
+        z-index: 3;
+        // To avoid animation junk pixels
+        outline: 1px solid transparent;
+        animation: popup 600ms linear forwards;
+    }
+
+    %msg {
+        width: fit-content;
+        font-size: 32px;
+        margin-bottom: 8px;
+    }
+
+    %btn {
+        color: #fff;
+        width: fit-content;
+        padding: 4px 24px;
+        font-size: 18px;
+        margin: auto;
+        background-color: #c40514;
+        cursor: pointer;
+        transition: 0.4s;
+    }
+
+    &>.added {
+        @extend %dialog;
+
+        &>* {
+            margin: auto;
+        }
+
+        &>:nth-child(2) {
+            @extend %msg;
+        }
+
+        &>:nth-child(3) {
+            @extend %btn;
+
+            &:hover {
+                background-color: #9c0514;
+            }
+        }
+
+    }
+
+    &>.success {
+        @extend %dialog;
+
+        &>:nth-child(1) {
+           color: #fcb917;
+           margin-bottom: 8px;
+        }
+
+        &>:nth-child(2) {
+            @extend %msg;
+        }
+
+        &>:nth-child(3) {
+            @extend %btn;
+
+            &:hover {
+                background-color: #9c0514;
+            }
+        }
+    }
+
+    &>.load {
+        position: fixed;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        padding: 32px 0;
+        width: 450px;
+        background-color: #c40514;
+        color: #fff;
+        font-weight: 300;
+        animation: popup 600ms linear forwards;
+        z-index: 3;
+        // To avoid animation junk pixels
+        outline: 1px solid transparent;
+
+        &>img {
+            margin: 0 auto;
+            width: 70px;
+            height: 70px;
+        }
+
+        &>div:first-of-type {
+            font-size: 30px;
+            font-weight: 600;
+            margin: 8px 0;
+        }
+    }
+
+    &>div:last-child {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0);
+        transition: background-color 600ms;
+    }
+
+    &>div:last-child.show {
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+
+}
+
+.filter {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    z-index: 2;
+    overflow: auto;
+    transition: opacity 1000ms;
+}
+
+.filter.show {
+    opacity: 1;
+}
+
+@keyframes popup {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    33% {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(0.90);
+    }
+
+    67% {
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+
+    83% {
+        transform: translate(-50%, -50%) scale(0.95);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes popdown {
+
+    33% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+}
