@@ -1,6 +1,6 @@
 # MC Delivery Clone
 
-Website I made when I was first studying HTML, CSS, and Javascript. lol
+Website I made when I was first studying HTML, CSS, and Javascript. Not responsive tho. lol
 
 ## Disclaimer
 
